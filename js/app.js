@@ -1,17 +1,19 @@
 const allMobiles = () => {
     const searchedItem = document.getElementById("search-field").value;
 
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchedItem}`
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchedItem}`;
+
+    const container = document.getElementById("mobile-container");
+    container.textContent = '';
 
     fetch(url).then(res => res.json()).then(data => showAllMobiles(data.data));
-
 }
 
 
 const showAllMobiles = (mobiles) => {
 
     for(const mobile of mobiles){
-            const container = document.getElementById("mobile-container");
+    const container = document.getElementById("mobile-container");
     const div = document.createElement('div');
     div.innerHTML = `    <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div>
@@ -33,11 +35,8 @@ const showAllMobiles = (mobiles) => {
             </div>
         </div>
     </div>`;
-    
     container.appendChild(div);
-    console.log(mobile);
     }
-
 }
 
 
