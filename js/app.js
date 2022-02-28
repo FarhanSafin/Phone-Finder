@@ -15,13 +15,13 @@ const showAllMobiles = (mobiles) => {
     const div = document.createElement('div');
     div.innerHTML = `    <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div>
-            <img class="rounded-t-lg mx-auto" src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg" alt="" />
+            <img class="rounded-t-lg mx-auto" src="${mobile.image}" alt="" />
         </div>
         <div class="p-5">
             <div>
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Name: </h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Name: ${mobile.phone_name}</h5>
             </div>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Brand: </p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Brand: ${mobile.brand}</p>
             <div
                 class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Details
@@ -35,7 +35,14 @@ const showAllMobiles = (mobiles) => {
     </div>`;
     
     container.appendChild(div);
+    console.log(mobile);
     }
 
-    console.log(mobiles)
 }
+
+
+
+
+
+
+
