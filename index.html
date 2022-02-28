@@ -1,16 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mobile Finder</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-    <h2>HI</h2>
+    <main>
+        <!-- Search Bar Start -->
+        <section>
+            <div>
+                <div class="container flex pt-36 pl-96 ml-96">
+                    <div class="relative">
+                        <input type="text" class="border-2 h-14 w-96 pl-4 rounded-lg focus:shadow-lg focus:outline-none"
+                            placeholder="Mobile Name">
+                        <button
+                            class="h-10 w-20 text-white rounded-lg bg-orange-500 hover:bg-orange-600 absolute top-2 right-2">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Search Bar End -->
+
+        <!-- All Mobile Data Start  -->
+        <section>
+            <div class="grid grid-cols-3 gap-4 pl-96 pt-24">
+                <div class="...">01</div>
+                <div class="...">02</div>
+                <div class="...">03</div>
+                <div class=" ...">04</div>
+                <div class="...">05</div>
+                <div class="...">06</div>
+            </div>
+
+
+        </section>
+        <!-- All Mobile Data End  -->
+
+
+    </main>
+
 
 
     <script src="js/app.js"></script>
 </body>
+
 </html>
