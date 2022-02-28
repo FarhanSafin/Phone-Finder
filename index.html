@@ -10,16 +10,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-slate-900">
     <main>
         <!-- Search Bar Start -->
         <section>
             <div>
-                <div class="container flex pt-36 pl-96 ml-96">
+                <div class="container flex pt-36 pl-96">
                     <div class="relative">
-                        <input type="text" class="border-2 h-14 w-96 pl-4 rounded-lg focus:shadow-lg focus:outline-none"
+                        <input id="search-field" type="text"
+                            class="border-2 h-14 w-96 pl-4 rounded-lg focus:shadow-lg focus:outline-none"
                             placeholder="Mobile Name">
-                        <button
+                        <button id="search-button" onclick="allMobiles()"
                             class="h-10 w-20 text-white rounded-lg bg-orange-500 hover:bg-orange-600 absolute top-2 right-2">Search</button>
                     </div>
                 </div>
@@ -29,16 +30,9 @@
 
         <!-- All Mobile Data Start  -->
         <section>
-            <div class="grid grid-cols-3 gap-4 pl-96 pt-24">
-                <div class="...">01</div>
-                <div class="...">02</div>
-                <div class="...">03</div>
-                <div class=" ...">04</div>
-                <div class="...">05</div>
-                <div class="...">06</div>
+            <div id="mobile-container"  class="grid grid-cols-3 gap-1 pt-24 pl-48">
+                
             </div>
-
-
         </section>
         <!-- All Mobile Data End  -->
 
