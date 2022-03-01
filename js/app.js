@@ -2,11 +2,6 @@ const toggleSpinner = displayStyle => {
     document.getElementById('spinner').style.display = displayStyle
 }
 
-
-
-
-
-
 /* fetching all the data from api */
 const allMobiles = () => {
     const searchedItem = document.getElementById("search-field");
