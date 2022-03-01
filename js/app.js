@@ -17,7 +17,7 @@ const appendData = (data) => {
         <div>
             <img class="rounded-t-lg mx-auto" src="${mobile.image}" alt="" />
         </div>
-        <div class="p-5">
+        <div class="m-2">
             <div>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Name: ${mobile.phone_name}</h5>
             </div>
@@ -46,7 +46,7 @@ const appendMoreData = (data) => {
         <div>
             <img class="rounded-t-lg mx-auto" src="${mobile.image}" alt="" />
         </div>
-        <div class="p-5">
+        <div class="m-2">
             <div>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Name: ${mobile.phone_name}</h5>
             </div>
