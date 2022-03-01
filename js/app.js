@@ -1,3 +1,4 @@
+/* Spinner Toggler */
 const toggleSpinner = displayStyle => {
     document.getElementById('spinner').style.display = displayStyle
 }
@@ -30,7 +31,8 @@ const allMobiles = () => {
 const dataFound = (data) => {
     if (data == "" || typeof data == 'undefined') {
         return ('No data found')
-    } else {
+    } 
+    else {
         return (data);
     }
 }
@@ -106,7 +108,6 @@ const showDetailData = (data) => {
     container.appendChild(div);
 }
 
-
 /* displaying all available data */
 const appendMoreData = (data) => {
     data.forEach(mobile => {
@@ -150,9 +151,10 @@ const showAllMobiles = (mobiles) => {
         mobileContainer.innerHTML = '';
         extraInfoContainer.innerHTML = '';
         warningContainer.style.display = 'block';
-        toggleSpinner('none')
 
-    } else {
+        toggleSpinner('none')
+    } 
+    else {
         const container = document.getElementById("warning");
         container.style.display = 'none'
         let limitedData = mobiles.slice(0, 20);
@@ -175,5 +177,4 @@ const showAllMobiles = (mobiles) => {
             window.moreData = () => appendMoreData(moreData);
         }
     }
-
 }
