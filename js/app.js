@@ -1,8 +1,19 @@
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle
+}
+
+
+
+
+
+
 /* fetching all the data from api */
 const allMobiles = () => {
     const searchedItem = document.getElementById("search-field");
     const detailContainer = document.getElementById("details-phone");
     const searchText = searchedItem.value;
+
+    toggleSpinner('block');
 
     searchedItem.value = '';
     detailContainer.innerHTML = '';
@@ -50,6 +61,7 @@ const appendData = (data) => {
     </div>`;
         container.appendChild(div);
     })
+    toggleSpinner('none');
 }
 
 
@@ -82,7 +94,7 @@ const showDetailData = (data) => {
                         </div>
                         <div class="m-2">
                             <div>
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Main Features: <br> Storage: ${dataFound(data?.mainFeatures?.storage)} <br> Display Size: ${dataFound(data?.mainFeatures?.displaySize)} <br> ChipSet: ${dataFound(data?.mainFeatures?.chipSet)} <br> Memory: ${dataFound(data?.mainFeatures?.memory)}
+                                <h5 class="mb-2 font-medium font-bold tracking-tight text-gray-900 dark:text-white"> <span class="text-2xl">Main Features:</span> <br> Storage: ${dataFound(data?.mainFeatures?.storage)} <br> Display Size: ${dataFound(data?.mainFeatures?.displaySize)} <br> ChipSet: ${dataFound(data?.mainFeatures?.chipSet)} <br> Memory: ${dataFound(data?.mainFeatures?.memory)}
                                 </h5>
                             </div>
                             <p class="mb-3 break-words font-normal text-gray-700 dark:text-gray-400">Sensors: ${dataFound(data?.mainFeatures?.sensors)}</p>
@@ -137,6 +149,7 @@ const showAllMobiles = (mobiles) => {
         mobileContainer.innerHTML = '';
         extraInfoContainer.innerHTML = '';
         warningContainer.style.display = 'block';
+        toggleSpinner('none')
 
     } else {
         const container = document.getElementById("warning");
