@@ -11,7 +11,13 @@ const toggleSpinner = displayStyle => {
 const allMobiles = () => {
     const searchedItem = document.getElementById("search-field");
     const detailContainer = document.getElementById("details-phone");
+    const extraInfoContainer = document.getElementById("extra-info");
+    const warningContainer = document.getElementById("warning");
+
     const searchText = searchedItem.value;
+
+    extraInfoContainer.innerHTML = '';
+    warningContainer.style.display = 'none';
 
     toggleSpinner('block');
 
