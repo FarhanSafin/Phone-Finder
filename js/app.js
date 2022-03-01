@@ -1,8 +1,9 @@
+/* fetching all the data from api */
 const allMobiles = () => {
     const searchedItem = document.getElementById("search-field");
     const detailContainer = document.getElementById("details-phone");
     const searchText = searchedItem.value;
-    
+
     searchedItem.value = '';
     detailContainer.innerHTML = '';
 
@@ -15,13 +16,14 @@ const allMobiles = () => {
 }
 
 const dataFound = (data) => {
-    if( data == "" || typeof data == 'undefined'){
+    if (data == "" || typeof data == 'undefined') {
         return ('No data found')
-    }else{
+    } else {
         return (data);
     }
 }
 
+/* apend data from api and displaying in 20 */
 const appendData = (data) => {
     data.forEach(mobile => {
         const container = document.getElementById("mobile-container");
@@ -36,7 +38,7 @@ const appendData = (data) => {
             </div>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Brand: ${dataFound(mobile?.brand)}</p>
              <button onclick="detailed('${dataFound(mobile?.slug)}')"
-                class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
                 Details
                 <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -50,6 +52,8 @@ const appendData = (data) => {
     })
 }
 
+
+/* getting detailed data from api */
 const detailed = id => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url).then(res => res.json()).then(data => showDetailData(data.data));
@@ -59,18 +63,19 @@ const detailed = id => {
     });
 }
 
+/* displaying detailed data on ui */
 const showDetailData = (data) => {
     const container = document.getElementById("details-phone");
     const div = document.createElement('div');
     container.innerHTML = '';
-    div.innerHTML = `<div class="w-1/2 p-6 mt-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto" id="detailed-section">
+    div.innerHTML = `<div class="md:w-1/2 md:p-6 md:mt-4 mt-12 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mx-auto w-11/12">
                         <div>
                             <img class="rounded-t-lg mx-auto" src="${dataFound(data?.image)}"
                                 alt="" />
                         </div>
                         <div class="m-2">
                             <div>
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Name: ${dataFound(data?.name)}
+                                <h5 class=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Name: ${dataFound(data?.name)}
                                 </h5>
                             </div>
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Brand: ${dataFound(data?.brand)}</p>
@@ -80,14 +85,16 @@ const showDetailData = (data) => {
                                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Main Features: <br> Storage: ${dataFound(data?.mainFeatures?.storage)} <br> Display Size: ${dataFound(data?.mainFeatures?.displaySize)} <br> ChipSet: ${dataFound(data?.mainFeatures?.chipSet)} <br> Memory: ${dataFound(data?.mainFeatures?.memory)}
                                 </h5>
                             </div>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Sensors: ${dataFound(data?.mainFeatures?.sensors)}</p>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Others: <br> WLAN: ${dataFound(data.others?.WLAN)} <br> Bluetooth: ${dataFound(data.others?.Bluetooth)} <br> GPS: ${dataFound(data.others?.GPS)} <br> NFC: ${dataFound(data.others?.NFC)} <br> Radio: ${dataFound(data.others?.Radio)} <br> USB: ${dataFound(data.others?.USB)}</p>
+                            <p class="mb-3 break-words font-normal text-gray-700 dark:text-gray-400">Sensors: ${dataFound(data?.mainFeatures?.sensors)}</p>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Others: <br> WLAN: ${dataFound(data.others?.WLAN)} <br> indigotooth: ${dataFound(data.others?.indigotooth)} <br> GPS: ${dataFound(data.others?.GPS)} <br> NFC: ${dataFound(data.others?.NFC)} <br> Radio: ${dataFound(data.others?.Radio)} <br> USB: ${dataFound(data.others?.USB)}</p>
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Realease Data: ${dataFound(data?.releaseDate)}</p>
                         </div>
                     </div>`;
     container.appendChild(div);
 }
 
+
+/* displaying all available data */
 const appendMoreData = (data) => {
     data.forEach(mobile => {
         const container = document.getElementById("mobile-container");
@@ -101,8 +108,8 @@ const appendMoreData = (data) => {
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Name: ${dataFound(mobile?.phone_name)}</h5>
             </div>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Brand: ${dataFound(mobile?.brand)}</p>
-            <button onclick="detailed('${dataFound(mobile?.slug)}')" href="detailed-section"
-                class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <button onclick="detailed('${dataFound(mobile?.slug)}')"
+                class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
                 Details
                 <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -118,6 +125,7 @@ const appendMoreData = (data) => {
     })
 }
 
+/* validating, slicing and calling all append function from here */
 const showAllMobiles = (mobiles) => {
     if (mobiles.length == 0) {
         const detailContainer = document.getElementById("details-phone");
@@ -128,11 +136,9 @@ const showAllMobiles = (mobiles) => {
         detailContainer.innerHTML = '';
         mobileContainer.innerHTML = '';
         extraInfoContainer.innerHTML = '';
-        warningContainer.style.display='block';
-        
-    } 
-    else 
-    {
+        warningContainer.style.display = 'block';
+
+    } else {
         const container = document.getElementById("warning");
         container.style.display = 'none'
         let limitedData = mobiles.slice(0, 20);
@@ -143,7 +149,7 @@ const showAllMobiles = (mobiles) => {
             container.textContent = '';
             const showMore = document.createElement('div');
             showMore.innerHTML = ` <br> <button id="show-more" onclick="moreData()"
-                class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
                 Show More
                 <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
