@@ -1,7 +1,9 @@
 const allMobiles = () => {
-    const searchedItem = document.getElementById("search-field").value;
+    const searchedItem = document.getElementById("search-field");
+    const searchText = searchedItem.value;
+    searchedItem.value = '';
 
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchedItem}`;
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
 
     const container = document.getElementById("mobile-container");
     container.textContent = '';
