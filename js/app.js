@@ -38,7 +38,7 @@ const appendData = (data) => {
             </div>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Brand: ${dataFound(mobile?.brand)}</p>
              <button onclick="detailed('${dataFound(mobile?.slug)}')"
-                class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
+                class = "inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800" >
                 Details
                 <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -86,7 +86,7 @@ const showDetailData = (data) => {
                                 </h5>
                             </div>
                             <p class="mb-3 break-words font-normal text-gray-700 dark:text-gray-400">Sensors: ${dataFound(data?.mainFeatures?.sensors)}</p>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Others: <br> WLAN: ${dataFound(data.others?.WLAN)} <br> indigotooth: ${dataFound(data.others?.indigotooth)} <br> GPS: ${dataFound(data.others?.GPS)} <br> NFC: ${dataFound(data.others?.NFC)} <br> Radio: ${dataFound(data.others?.Radio)} <br> USB: ${dataFound(data.others?.USB)}</p>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Others: <br> WLAN: ${dataFound(data.others?.WLAN)} <br> Bluetooth: ${dataFound(data.others?.Bluetooth)} <br> GPS: ${dataFound(data.others?.GPS)} <br> NFC: ${dataFound(data.others?.NFC)} <br> Radio: ${dataFound(data.others?.Radio)} <br> USB: ${dataFound(data.others?.USB)}</p>
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Realease Data: ${dataFound(data?.releaseDate)}</p>
                         </div>
                     </div>`;
